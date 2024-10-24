@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "src/meta_main.py", line 20, in <module>
+    from meta.population import REGISTRY as pop_REGISTRY
+  File "/home/cike/marl_collector/src/meta/population/__init__.py", line 1, in <module>
+    from .population import Population, StrPopulation
+  File "/home/cike/marl_collector/src/meta/population/population.py", line 6, in <module>
+    from runners.meta_runner import ParallelProcessor
+  File "/home/cike/marl_collector/src/runners/__init__.py", line 1, in <module>
+    from .episode_runner import EpisodeRunner
+  File "/home/cike/marl_collector/src/runners/episode_runner.py", line 1, in <module>
+    from envs import REGISTRY as env_REGISTRY
+  File "/home/cike/marl_collector/src/envs/__init__.py", line 3, in <module>
+    from .overcooked.overcookedenv import OvercookedMultiEnv
+  File "/home/cike/marl_collector/src/envs/overcooked/overcookedenv.py", line 6, in <module>
+    from overcooked_ai_py.mdp.actions import Action, Direction
+ModuleNotFoundError: No module named 'overcooked_ai_py'
