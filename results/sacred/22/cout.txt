@@ -1,21 +1,3 @@
-/home/cike/anaconda3/envs/pymarl/lib/python3.7/site-packages/gym/envs/registration.py:498: UserWarning: [33mWARN: Overriding environment Overcooked-v0 already in registry.[0m
-  logger.warn(f"Overriding environment {new_spec.id} already in registry.")
-[DEBUG 08:46:31] git.cmd Popen(['git', 'version'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'version'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.util Failed checking if running in CYGWIN due to: FileNotFoundError(2, "No such file or directory: '/usr/bin/uname'")
-[DEBUG 08:46:31] git.cmd Popen(['git', 'diff', '--cached', '--abbrev=40', '--full-index', '--raw'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'diff', '--abbrev=40', '--full-index', '--raw'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'cat-file', '--batch-check'], cwd=/home/cike/marl_collector, stdin=<valid stream>, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'diff', '--cached', '--abbrev=40', '--full-index', '--raw'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'diff', '--abbrev=40', '--full-index', '--raw'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'cat-file', '--batch-check'], cwd=/home/cike/marl_collector, stdin=<valid stream>, shell=False, universal_newlines=False)
-[DEBUG 08:46:31] git.cmd Popen(['git', 'diff', '--cached', '--abbrev=40', '--full-index', '--raw'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:32] git.cmd Popen(['git', 'diff', '--abbrev=40', '--full-index', '--raw'], cwd=/home/cike/marl_collector, stdin=None, shell=False, universal_newlines=False)
-[DEBUG 08:46:32] git.cmd Popen(['git', 'cat-file', '--batch-check'], cwd=/home/cike/marl_collector, stdin=<valid stream>, shell=False, universal_newlines=False)
-[INFO 08:46:32] root Saving to FileStorageObserver in results/sacred.
-[DEBUG 08:46:33] pymarl Using capture mode "fd"
-/home/cike/marl_collector/src/envs/overcooked/overcooked_ai
-/home/cike/marl_collector/src/envs/overcooked/overcooked_ai
 [INFO 08:46:33] pymarl Running command 'my_main'
 [INFO 08:46:33] pymarl Started run with ID "22"
 [DEBUG 08:46:33] pymarl Starting Heartbeat

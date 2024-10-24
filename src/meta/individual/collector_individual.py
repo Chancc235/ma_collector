@@ -124,15 +124,24 @@ class CollectorIndividual(Individual):
 
     def save_trajectories(self):
         """保存收集到的轨迹"""
-        # buffer_data = self.buffer.get_all_transitions()
+        '''
+        buffer_data = self.buffer.get_all_transitions()
+        buffer = {}
+        buffer["transition_data"] = buffer_data["transition_data"][-self.args.save_BR_episodes:]
+        buffer["episode_data"] = buffer_data["episode_data"][-self.args.save_BR_episodes:]
+        '''
         buffer_data = self.buffer.fetch_newest_batch(self.args.save_BR_episodes)
         buffer = {
             "transition_data": buffer_data.data.transition_data,
             "episode_data": buffer_data.data.episode_data
         }
+        print(buffer["episode_data"])
+        
         save_path = f"{self.args.local_saves_path}/buffer_{self.episode}.pkl"
+        '''
         with open(save_path, 'wb') as f:
             pickle.dump(buffer, f)
+        '''
         self.logger.console_logger.info(f"Trajectories saved to {save_path}.")
 
     def test(self):
