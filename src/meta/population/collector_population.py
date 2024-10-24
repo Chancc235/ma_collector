@@ -57,7 +57,7 @@ class CollectorPopulation(StrPopulation):
             count += self.args.batch_size_run
 
             # Periodically save the collected trajectories
-            if self.args.save_BR and (self.BRI.episode - last_save >= self.args.save_BR_episodes or done or last_save == 0):
+            if self.args.save_BR and (self.BRI.episode - last_save >= self.args.save_BR_episodes or done):
                 self.BRI.save_trajectories()  # Changed to save collected trajectories
                 last_save = self.BRI.episode
 
