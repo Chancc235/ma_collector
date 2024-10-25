@@ -5,7 +5,7 @@ ind: collector
 
 # ====> environment config <====
 env: stag_hunt
-t_max: 100000  # 保持不变，最大交互时间
+t_max: 2048  # 保持不变，最大交互时间
 runner: meta  # runner 不变，用于运行环境
 batch_size_run: 32
 save_BR: True  # 保持True，定期保存轨迹

@@ -85,7 +85,11 @@ class CollectorIndividual(Individual):
         # 新增 first_set 标志
         self.first_set = True  # 确保初始化 first_set 属性
         self.first_train = True
-
+    def init_buffer(self):
+        """初始化缓冲区"""
+        self.buffer = MetaReplayBuffer(self.scheme, self.global_groups, self.args.buffer_size, self.args.env_info["episode_limit"] + 1,
+                                       preprocess=self.preprocess,
+                                       device="cpu" if self.args.buffer_cpu_only else self.args.device)
     def collect_trajectories(self):
         """收集轨迹"""
         done = False
@@ -118,30 +122,25 @@ class CollectorIndividual(Individual):
             if (self.runner.t_env - self.last_log_T) >= self.args.log_interval:
                 self.logger.log_stat("episode", self.episode, self.runner.t_env)
                 self.last_log_T = self.runner.t_env
+                
 
             return done
 
 
     def save_trajectories(self):
         """保存收集到的轨迹"""
-        '''
-        buffer_data = self.buffer.get_all_transitions()
-        buffer = {}
-        buffer["transition_data"] = buffer_data["transition_data"][-self.args.save_BR_episodes:]
-        buffer["episode_data"] = buffer_data["episode_data"][-self.args.save_BR_episodes:]
+        
+        buffer = self.buffer.get_all_transitions()
         '''
         buffer_data = self.buffer.fetch_newest_batch(self.args.save_BR_episodes)
         buffer = {
             "transition_data": buffer_data.data.transition_data,
             "episode_data": buffer_data.data.episode_data
         }
-        print(buffer["episode_data"])
-        
-        save_path = f"{self.args.local_saves_path}/buffer_{self.episode}.pkl"
         '''
+        save_path = f"{self.args.local_saves_path}/buffer_{self.episode}.pkl"
         with open(save_path, 'wb') as f:
             pickle.dump(buffer, f)
-        '''
         self.logger.console_logger.info(f"Trajectories saved to {save_path}.")
 
     def test(self):

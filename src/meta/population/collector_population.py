@@ -59,6 +59,7 @@ class CollectorPopulation(StrPopulation):
             # Periodically save the collected trajectories
             if self.args.save_BR and (self.BRI.episode - last_save >= self.args.save_BR_episodes or done):
                 self.BRI.save_trajectories()  # Changed to save collected trajectories
+                self.BRI.init_buffer()
                 last_save = self.BRI.episode
 
         # Close the environment after collection
