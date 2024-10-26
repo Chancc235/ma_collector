@@ -2,11 +2,13 @@ import pickle
 import torch
 
 # 文件路径
-file_path = './saves/trajectorys/buffer_1024.pkl'
+file_path = './saves/trajectorys/buffer_2048.pkl'
 # 打开并读取 .plk 文件
 with open(file_path, 'rb') as file:
     data = pickle.load(file)
 reward = data["transition_data"]["reward"].squeeze(-1)[:1024]  # 变为 [5000, 201]
+ter = data["transition_data"]["terminated"].squeeze(-1)[:1024]
+print(torch.sum(ter == 1).item())
 
 # 对每个 episode 的奖励求和，得到每个 episode 的总回报
 episode_returns = reward.sum(dim=1)  # 结果形状为 [5000]

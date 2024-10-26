@@ -4,7 +4,7 @@ pop: stage1
 ind: stage1
 
 env: stag_hunt
-t_max: 5000000 # totaltimesteps for the slowest individual
+t_max: 3000000 # totaltimesteps for the slowest individual
 runner: meta
 batch_size_run: 32
 

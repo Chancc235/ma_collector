@@ -23,4 +23,4 @@ teammate_alg: vdn
 population_directories:  models/
 
 
-use_history: False  # 只使用最新的模型
+use_history: True # 保持True，使用历史轨迹，三个checkpoints
