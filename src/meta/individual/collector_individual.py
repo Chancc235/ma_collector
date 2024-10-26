@@ -71,8 +71,7 @@ class CollectorIndividual(Individual):
                                        preprocess=self.preprocess,
                                        device="cpu" if self.args.buffer_cpu_only else self.args.device)
 
-        # 设置 runner
-        self.runner.setup(self.scheme, self.global_groups, self.preprocess, self)
+        
 
         groups = {
             "agents": self.args.n_agents
@@ -81,6 +80,9 @@ class CollectorIndividual(Individual):
         self.mac = mac_REGISTRY[self.args.mac](self.buffer.scheme, groups, self.args)
         self.args.obs_dim = self.mac.input_shape
         self.alg2mac = {"explore": self.mac}
+
+        # 设置 runner
+        self.runner.setup(self.scheme, self.global_groups, self.preprocess, self.mac)
 
         # 新增 first_set 标志
         self.first_set = True  # 确保初始化 first_set 属性
@@ -102,7 +104,8 @@ class CollectorIndividual(Individual):
         while not done:
             # 执行与环境的交互，生成一批轨迹数据
             self.logger.console_logger.info(f"Runing batch")
-            episode_batch = self.runner.run(test_mode=False, status_recorder=self.status)
+
+            episode_batch = self.runner.run(test_mode=True, status_recorder=self.status)
             self.logger.console_logger.info(f"Get batch")
             # 确保 episode_batch 在正确的设备上
             if episode_batch.device != self.args.device:
@@ -138,7 +141,7 @@ class CollectorIndividual(Individual):
             "episode_data": buffer_data.data.episode_data
         }
         '''
-        save_path = f"{self.args.local_saves_path}/buffer_{self.episode}.pkl"
+        save_path = f"{self.args.local_saves_path}/trajectorys/buffer_{self.episode}.pkl"
         with open(save_path, 'wb') as f:
             pickle.dump(buffer, f)
         self.logger.console_logger.info(f"Trajectories saved to {save_path}.")

@@ -238,6 +238,7 @@ class MetaRunner():
             actions_chosen = {
                 "actions": actions.unsqueeze(1)
             }
+            actions_chosen["actions"] = actions_chosen["actions"].to(self.batch.device)
             self.batch.update(actions_chosen, bs=envs_not_terminated, ts=self.t, mark_filled=False)
 
             # Send actions to each env

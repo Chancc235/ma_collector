@@ -48,7 +48,9 @@ class CollectorPopulation(StrPopulation):
             # print(teammate)
             # Set the randomly selected teammate for BRI to interact with
             self.BRI.set_agents(teammate)
-            
+            self.BRI.runner.mac.load_models(teammate)
+            self.BRI.runner.setup(self.BRI.scheme, self.BRI.global_groups, self.BRI.preprocess, self.BRI.mac)
+
             # Instead of training, collect trajectories by interacting with the environment
             done = self.BRI.collect_trajectories()  # Changed to collect trajectories
 

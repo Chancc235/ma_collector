@@ -57,8 +57,8 @@ local_saves_path: "saves" # Path for store and load pre-trained models
 
 # --- RL hyperparameters ---
 gamma: 0.99
-batch_size: 1024 # Number of episodes to train on
-buffer_size: 32 # Size of the replay buffer
+batch_size: 32 # Number of episodes to train on
+buffer_size: 1024 # Size of the replay buffer
 lr: 0.0005 # Learning rate for agents
 critic_lr: 0.0005 # Learning rate for critics
 optim_alpha: 0.99 # RMSProp alpha

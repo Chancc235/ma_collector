@@ -14,10 +14,10 @@ population_size: 4 # modify
 
 # ====> population config <====
 alg2agent:
-  controllable: [0]  # 可控智能体
-  teammate: [1]  # 队友智能体
+  controllable: [0, 1]  # 可控智能体
+  teammate: [0, 1]  # 队友智能体
 
-explore_alg: stage2_PP  # 探索算法保持为stage2_PP
+explore_alg: vdn
 
 teammate_alg: vdn
 population_directories:  models/

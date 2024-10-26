@@ -3,7 +3,7 @@ agent: rnn # Default rnn agent
 
 # use epsilon greedy action selector
 action_selector: epsilon_greedy
-buffer_size: 5000
+buffer_size: 2000
 
 # update the target network every {} episodes
 target_update_interval: 200
